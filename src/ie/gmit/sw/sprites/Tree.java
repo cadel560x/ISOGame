@@ -1,23 +1,38 @@
 package ie.gmit.sw.sprites;
 
-import java.awt.image.BufferedImage;
-import java.io.File;
+//import java.awt.image.BufferedImage;
 
-import ie.gmit.sw.ImageManager;
 
+
+
+// Flyweight pattern: extrinsic state
 public class Tree extends ObjectSprite {
+//	Fields
+//	TreeModel treeModel;
 	
+	
+	
+	
+//	Constructors
 	public Tree() {
-		try {
-			image = ImageManager.loadImage("./resources/images/objects/0005.png");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+//		treeModel = TreeModel.getInstance();
+		image = TreeModel.getImage();
 	}
 	
+	
+	
+	
+//	Delegate methods
+//	public BufferedImage getImage() {
+//		return treeModel.getImage();
+//	}
+	
+	
+	
+	
+//	Other methods
 //	public onCollision(Collider collider) {
 //		// interaction
 //	}
-	
 	 
-}
+} // end class

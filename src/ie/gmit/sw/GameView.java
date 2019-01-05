@@ -113,15 +113,18 @@ public class GameView extends JPanel implements ActionListener  {
 						
 						g2.drawImage(matrix[row][col].getImage(), x1, y1, null);
 					} else {
-						x1 = col * Properties.getTileWidth();
-						y1 = row * Properties.getTileHeight();
+//						x1 = col * Properties.getTileWidth();
+						x1 = col * Properties.getInteger("TILE_WIDTH");
+//						y1 = row * Properties.getTileHeight();
+						y1 = row * Properties.getInteger("TILE_HEIGHT");
+						
 	        			if (imageIndex < cartesian.length) {
 	        				g2.setColor(cartesian[imageIndex]);
 	        			}else {
 	        				g2.setColor(Color.WHITE);
 	        			}
 						
-	        			g2.fillRect(x1, y1, Properties.getTileWidth(), Properties.getTileWidth());
+	        			g2.fillRect(x1, y1, Properties.getInteger("TILE_WIDTH"), Properties.getInteger("TILE_HEIGHT"));
 					
 					} // end if-else
 					

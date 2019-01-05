@@ -92,15 +92,20 @@ public class GameWindow {
 //		player = new Avatar("Player 2", new Point(0, 0), img.loadImages("./resources/images/sprites/default", null));
 //		player = new Avatar("Player 2", new Point(0, 0), ImageManager.loadImages("./resources/images/sprites/default", null));
 		
-		player = AvatarFactory.getKnightInstance();
-//		player = AvatarFactory.getPlayerInstance();
+		
+		player = AvatarFactory.getPlayerInstance();
+//		player = AvatarFactory.getKnightInstance();
+//		player = AvatarFactory.getGreenInstance();
+//		player = AvatarFactory.getPersonInstance();
+		
 		player.setName("Player 1");
 		player.setPosition(new Point(0,0));
 		
 //		GameView view = new GameView(model, objects, player);
 		GameView view = new GameView(model, objects, player);
 		EventManager manager = new EventManager(player, view);
-		Dimension d = new Dimension(Properties.getDefaultViewSize(), Properties.getDefaultViewSize()/2);
+//		Dimension d = new Dimension(Properties.getDefaultViewSize(), Properties.getDefaultViewSize()/2);
+		Dimension d = new Dimension(Properties.getInteger("DEFAULT_VIEW_SIZE"), Properties.getInteger("DEFAULT_VIEW_SIZE")/2);
 		view.setPreferredSize(d);
 		view.setMinimumSize(d);
 		view.setMaximumSize(d);
