@@ -2,19 +2,28 @@ package ie.gmit.sw.sprites;
 
 public class Tile extends ObjectSprite {
 //	Flyweight pattern: extrinsic state
-	private boolean trigger;
+//	Fields
+	private boolean water;
 	private int movementCost;
 	
+	
+	
+	
+//	Constructors
 	public Tile() {
 		
 	}
 
-	public boolean isTrigger() {
-		return trigger;
+	
+	
+	
+//	Getters and setters
+	public boolean isWater() {
+		return water;
 	}
 
-	public void setTrigger(boolean trigger) {
-		this.trigger = trigger;
+	public void setWater(boolean water) {
+		this.water = water;
 	}
 
 	public int getMovementCost() {
@@ -25,4 +34,4 @@ public class Tile extends ObjectSprite {
 		this.movementCost = movementCost;
 	}
 	
-}
+} // end class

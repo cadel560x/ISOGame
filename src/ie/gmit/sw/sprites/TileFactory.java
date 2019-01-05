@@ -7,6 +7,7 @@ import java.util.Map;
 
 
 import ie.gmit.sw.ImageManager;
+import ie.gmit.sw.Properties;
 
 // Singleton
 public class TileFactory {
@@ -20,14 +21,14 @@ public class TileFactory {
 		
 		try {
 //			Flyweight pattern: intrinsic state
-			imageMap.put("stoneImage", ImageManager.loadImage("resources/images/ground/0001.png"));
-			imageMap.put("grassImage", ImageManager.loadImage("resources/images/ground/0000.png"));
-			imageMap.put("waterImage", ImageManager.loadImage("resources/images/ground/0004.png"));
-			imageMap.put("sandImage", ImageManager.loadImage("resources/images/ground/0003.png"));
-			imageMap.put("mudImage", ImageManager.loadImage("resources/images/ground/0006.png"));
-			imageMap.put("beachImage", ImageManager.loadImage("resources/images/ground/0005.png"));
-			imageMap.put("fineStoneImage", ImageManager.loadImage("resources/images/ground/0007.png"));
-			imageMap.put("mossStoneImage", ImageManager.loadImage("resources/images/ground/0002.png"));
+			imageMap.put("stoneImage", ImageManager.loadImage(Properties.get("STONE_IMAGE_FILE")));
+			imageMap.put("grassImage", ImageManager.loadImage(Properties.get("GRASS_IMAGE_FILE")));
+			imageMap.put("waterImage", ImageManager.loadImage(Properties.get("WATER_IMAGE_FILE")));
+			imageMap.put("sandImage", ImageManager.loadImage(Properties.get("SAND_IMAGE_FILE")));
+			imageMap.put("mudImage", ImageManager.loadImage(Properties.get("MUD_IMAGE_FILE")));
+			imageMap.put("beachImage", ImageManager.loadImage(Properties.get("BEACH_IMAGE_FILE")));
+			imageMap.put("fineStoneImage", ImageManager.loadImage(Properties.get("FINE_STONE_IMAGE_FILE")));
+			imageMap.put("mossStoneImage", ImageManager.loadImage(Properties.get("MOSS_STONE_IMAGE_FILE")));
 			
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -6,7 +6,7 @@ import ie.gmit.sw.Direction;
 import ie.gmit.sw.Moveable;
 import ie.gmit.sw.Point;
 
-public class Avatar extends Sprite implements Moveable{
+public class Avatar extends Sprite implements Moveable {
 //	Fields
 	private Point position; //The current x, y position
 	private Direction direction = Direction.DOWN; //The current orientation of the sprite

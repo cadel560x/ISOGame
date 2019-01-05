@@ -2,7 +2,7 @@ package ie.gmit.sw.sprites;
 
 import java.awt.image.BufferedImage;
 
-public class ObjectSprite extends Sprite {
+public abstract class ObjectSprite extends Sprite {
 //	Fields
 	protected BufferedImage image;
 

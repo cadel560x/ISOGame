@@ -5,23 +5,16 @@ import java.awt.FlowLayout;
 
 import javax.swing.JFrame;
 
-import ie.gmit.sw.sprites.Air;
+import ie.gmit.sw.sprites.Avatar;
+import ie.gmit.sw.sprites.AvatarFactory;
 import ie.gmit.sw.sprites.Chest;
 import ie.gmit.sw.sprites.Hole;
 import ie.gmit.sw.sprites.ObjectSprite;
-import ie.gmit.sw.sprites.Avatar;
-import ie.gmit.sw.sprites.AvatarFactory;
+import ie.gmit.sw.sprites.ObjectSpriteFactory;
 import ie.gmit.sw.sprites.Sign;
 import ie.gmit.sw.sprites.TileFactory;
 import ie.gmit.sw.sprites.Tree;
-import ie.gmit.sw.sprites.tiles.FineStone;
-import ie.gmit.sw.sprites.tiles.Grass;
-import ie.gmit.sw.sprites.tiles.GrassStone;
-import ie.gmit.sw.sprites.tiles.Mud;
-import ie.gmit.sw.sprites.tiles.Sand;
-import ie.gmit.sw.sprites.tiles.SandWater;
-import ie.gmit.sw.sprites.tiles.Stone;
-import ie.gmit.sw.sprites.tiles.Water;
+
 public class GameWindow {
 	/*
 	 * This matrix represents the isometric game model, with each number mapping to an
@@ -53,6 +46,7 @@ public class GameWindow {
 //			{ new Water(), new Water(), new Water(), new Water(), new Water(), new Sand() , new Stone(), new FineStone(), new FineStone(), new FineStone()}
 //	};
 	
+//	Flyweight pattern
 	private ObjectSprite[][] model = { 
 			{ TileFactory.getTileInstance("stoneImage"), TileFactory.getTileInstance("grassImage"), TileFactory.getTileInstance("grassImage"), TileFactory.getTileInstance("grassImage"), TileFactory.getTileInstance("grassImage"), TileFactory.getTileInstance("grassImage") , TileFactory.getTileInstance("grassImage"), TileFactory.getTileInstance("grassImage"), TileFactory.getTileInstance("grassImage"), TileFactory.getTileInstance("mossStoneImage")},
 			{ TileFactory.getTileInstance("grassImage"), TileFactory.getTileInstance("stoneImage"), TileFactory.getTileInstance("grassImage"), TileFactory.getTileInstance("grassImage"), TileFactory.getTileInstance("grassImage"), TileFactory.getTileInstance("grassImage") , TileFactory.getTileInstance("grassImage"), TileFactory.getTileInstance("grassImage"), TileFactory.getTileInstance("grassImage"), TileFactory.getTileInstance("mossStoneImage")},
@@ -81,18 +75,33 @@ public class GameWindow {
 //	};
 	
 	//This matrix is a representation of where objects (things) in the game are placed
-		private ObjectSprite[][] objects = { 
-				{ new Air(), new Air(), new Air(), new Tree(), new Tree(), new Tree() , new Tree(), new Tree(), new Tree(), new Air()},
-				{ new Tree(), new Air(), new Air(), new Air(), new Tree(), new Tree() , new Tree(), new Tree(), new Tree(), new Air()},
-				{ new Tree(), new Tree(), new Air(), new Air(), new Air(), new Tree() , new Tree(), new Tree(), new Tree(), new Hole()},
-				{ new Tree(), new Tree(), new Sign(), new Air(), new Air(), new Air() , new Tree(), new Tree(), new Tree(), new Air()},
-				{ new Air(), new Air(), new Air(), new Air(), new Air(), new Air() , new Air(), new Tree(), new Tree(), new Air()},
-				{ new Air(), new Air(), new Air(), new Air(), new Air(), new Air() , new Air(), new Air(), new Tree(), new Air()},
-				{ new Air(), new Air(), new Air(), new Air(), new Air(), new Chest() , new Air(), new Air(), new Air(), new Air()},
-				{ new Air(), new Air(), new Air(), new Air(), new Air(), new Air() , new Air(), new Air(), new Air(), new Air()},
-				{ new Air(), new Air(), new Air(), new Air(), new Air(), new Air() , new Air(), new Air(), new Air(), new Air()},
-				{ new Air(), new Air(), new Air(), new Air(), new Air(), new Air() , new Air(), new Air(), new Air(), new Air()}
-		};
+//		private ObjectSprite[][] objects = { 
+//				{ new Air(), new Air(), new Air(), new Tree(), new Tree(), new Tree() , new Tree(), new Tree(), new Tree(), new Air()},
+//				{ new Tree(), new Air(), new Air(), new Air(), new Tree(), new Tree() , new Tree(), new Tree(), new Tree(), new Air()},
+//				{ new Tree(), new Tree(), new Air(), new Air(), new Air(), new Tree() , new Tree(), new Tree(), new Tree(), new Hole()},
+//				{ new Tree(), new Tree(), new Sign(), new Air(), new Air(), new Air() , new Tree(), new Tree(), new Tree(), new Air()},
+//				{ new Air(), new Air(), new Air(), new Air(), new Air(), new Air() , new Air(), new Tree(), new Tree(), new Air()},
+//				{ new Air(), new Air(), new Air(), new Air(), new Air(), new Air() , new Air(), new Air(), new Tree(), new Air()},
+//				{ new Air(), new Air(), new Air(), new Air(), new Air(), new Chest() , new Air(), new Air(), new Air(), new Air()},
+//				{ new Air(), new Air(), new Air(), new Air(), new Air(), new Air() , new Air(), new Air(), new Air(), new Air()},
+//				{ new Air(), new Air(), new Air(), new Air(), new Air(), new Air() , new Air(), new Air(), new Air(), new Air()},
+//				{ new Air(), new Air(), new Air(), new Air(), new Air(), new Air() , new Air(), new Air(), new Air(), new Air()}
+//		};
+	
+//	Flyweight pattern
+	//This matrix is a representation of where objects (things) in the game are placed
+	private ObjectSprite[][] objects = { 
+			{ ObjectSpriteFactory.getAirInstance(), ObjectSpriteFactory.getAirInstance(), ObjectSpriteFactory.getAirInstance(), ObjectSpriteFactory.getTreeInstance(), ObjectSpriteFactory.getTreeInstance(), ObjectSpriteFactory.getTreeInstance() , ObjectSpriteFactory.getTreeInstance(), ObjectSpriteFactory.getTreeInstance(), ObjectSpriteFactory.getTreeInstance(), ObjectSpriteFactory.getAirInstance()},
+			{ ObjectSpriteFactory.getTreeInstance(), ObjectSpriteFactory.getAirInstance(), ObjectSpriteFactory.getAirInstance(), ObjectSpriteFactory.getAirInstance(), ObjectSpriteFactory.getTreeInstance(), ObjectSpriteFactory.getTreeInstance() , ObjectSpriteFactory.getTreeInstance(), ObjectSpriteFactory.getTreeInstance(), ObjectSpriteFactory.getTreeInstance(), ObjectSpriteFactory.getAirInstance()},
+			{ ObjectSpriteFactory.getTreeInstance(), ObjectSpriteFactory.getTreeInstance(), ObjectSpriteFactory.getAirInstance(), ObjectSpriteFactory.getAirInstance(), ObjectSpriteFactory.getAirInstance(), ObjectSpriteFactory.getTreeInstance() , ObjectSpriteFactory.getTreeInstance(), ObjectSpriteFactory.getTreeInstance(), ObjectSpriteFactory.getTreeInstance(), ObjectSpriteFactory.getHoleInstance()},
+			{ ObjectSpriteFactory.getTreeInstance(), ObjectSpriteFactory.getTreeInstance(), ObjectSpriteFactory.getSignInstance(), ObjectSpriteFactory.getAirInstance(), ObjectSpriteFactory.getAirInstance(), ObjectSpriteFactory.getAirInstance() , ObjectSpriteFactory.getTreeInstance(), ObjectSpriteFactory.getTreeInstance(), ObjectSpriteFactory.getTreeInstance(), ObjectSpriteFactory.getAirInstance()},
+			{ ObjectSpriteFactory.getAirInstance(), ObjectSpriteFactory.getAirInstance(), ObjectSpriteFactory.getAirInstance(), ObjectSpriteFactory.getAirInstance(), ObjectSpriteFactory.getAirInstance(), ObjectSpriteFactory.getAirInstance() , ObjectSpriteFactory.getAirInstance(), ObjectSpriteFactory.getTreeInstance(), ObjectSpriteFactory.getTreeInstance(), ObjectSpriteFactory.getAirInstance()},
+			{ ObjectSpriteFactory.getAirInstance(), ObjectSpriteFactory.getAirInstance(), ObjectSpriteFactory.getAirInstance(), ObjectSpriteFactory.getAirInstance(), ObjectSpriteFactory.getAirInstance(), ObjectSpriteFactory.getAirInstance() , ObjectSpriteFactory.getAirInstance(), ObjectSpriteFactory.getAirInstance(), ObjectSpriteFactory.getTreeInstance(), ObjectSpriteFactory.getAirInstance()},
+			{ ObjectSpriteFactory.getAirInstance(), ObjectSpriteFactory.getAirInstance(), ObjectSpriteFactory.getAirInstance(), ObjectSpriteFactory.getAirInstance(), ObjectSpriteFactory.getAirInstance(), ObjectSpriteFactory.getChestInstance() , ObjectSpriteFactory.getAirInstance(), ObjectSpriteFactory.getAirInstance(), ObjectSpriteFactory.getAirInstance(), ObjectSpriteFactory.getAirInstance()},
+			{ ObjectSpriteFactory.getAirInstance(), ObjectSpriteFactory.getAirInstance(), ObjectSpriteFactory.getAirInstance(), ObjectSpriteFactory.getAirInstance(), ObjectSpriteFactory.getAirInstance(), ObjectSpriteFactory.getAirInstance() , ObjectSpriteFactory.getAirInstance(), ObjectSpriteFactory.getAirInstance(), ObjectSpriteFactory.getAirInstance(), ObjectSpriteFactory.getAirInstance()},
+			{ ObjectSpriteFactory.getAirInstance(), ObjectSpriteFactory.getAirInstance(), ObjectSpriteFactory.getAirInstance(), ObjectSpriteFactory.getAirInstance(), ObjectSpriteFactory.getAirInstance(), ObjectSpriteFactory.getAirInstance() , ObjectSpriteFactory.getAirInstance(), ObjectSpriteFactory.getAirInstance(), ObjectSpriteFactory.getAirInstance(), ObjectSpriteFactory.getAirInstance()},
+			{ ObjectSpriteFactory.getAirInstance(), ObjectSpriteFactory.getAirInstance(), ObjectSpriteFactory.getAirInstance(), ObjectSpriteFactory.getAirInstance(), ObjectSpriteFactory.getAirInstance(), ObjectSpriteFactory.getAirInstance() , ObjectSpriteFactory.getAirInstance(), ObjectSpriteFactory.getAirInstance(), ObjectSpriteFactory.getAirInstance(), ObjectSpriteFactory.getAirInstance()}
+	};
 	
 //	private ImageManager img;
 	private Avatar player;

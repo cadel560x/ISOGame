@@ -1,15 +1,15 @@
 package ie.gmit.sw.sprites;
 
-import ie.gmit.sw.ImageManager;
+//import ie.gmit.sw.ImageManager;
 
 public class Chest extends ObjectSprite{
 
 	public Chest() {
-		try {
-			image = ImageManager.loadImage("./resources/images/objects/0003.png");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+//		try {
+//			image = ImageManager.loadImage("./resources/images/objects/0003.png");
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
 	}
 	
 }

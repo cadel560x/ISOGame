@@ -16,7 +16,7 @@ public class Tree extends ObjectSprite {
 //	Constructors
 	public Tree() {
 //		treeModel = TreeModel.getInstance();
-		image = TreeModel.getImage();
+//		image = TreeModel.getImage();
 	}
 	
 	
