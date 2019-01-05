@@ -12,6 +12,7 @@ import ie.gmit.sw.sprites.ObjectSprite;
 import ie.gmit.sw.sprites.Avatar;
 import ie.gmit.sw.sprites.AvatarFactory;
 import ie.gmit.sw.sprites.Sign;
+import ie.gmit.sw.sprites.TileFactory;
 import ie.gmit.sw.sprites.Tree;
 import ie.gmit.sw.sprites.tiles.FineStone;
 import ie.gmit.sw.sprites.tiles.Grass;
@@ -39,17 +40,30 @@ public class GameWindow {
 //			{ 4, 4, 4, 4, 4, 3 , 1, 7, 7, 7}
 //	};
 	
+//	private ObjectSprite[][] model = { 
+//			{ new Stone(), new Grass(), new Grass(), new Grass(), new Grass(), new Grass() , new Grass(), new Grass(), new Grass(), new GrassStone()},
+//			{ new Grass(), new Stone(), new Grass(), new Grass(), new Grass(), new Grass() , new Grass(), new Grass(), new Grass(), new GrassStone()},
+//			{ new Grass(), new Grass(), new GrassStone(), new Grass(), new Grass(), new Grass() , new Grass(), new Grass(), new Grass(), new GrassStone()},
+//			{ new Grass(), new Grass(), new Grass(), new Stone(), new Grass(), new Grass() , new Grass(), new Grass(), new Grass(), new GrassStone()},
+//			{ new GrassStone(), new GrassStone(), new GrassStone(), new GrassStone(), new Stone(), new Grass() , new Grass(), new Grass(), new Grass(), new GrassStone()},
+//			{ new Sand(), new Sand(), new Sand(), new Sand(), new Stone(), new Stone() , new Stone(), new Grass(), new Grass(), new Stone()},
+//			{ new SandWater(), new SandWater(), new SandWater(), new SandWater(), new Sand(), new Sand() , new Stone(), new Grass(), new Grass(), new Stone()},
+//			{ new Water(), new Water(), new Water(), new SandWater(), new Sand(), new Sand() , new Stone(), new Grass(), new Grass(), new Grass()},
+//			{ new Water(), new Water(), new Water(), new Water(), new SandWater(), new Sand() , new Stone(), new Mud(), new Mud(), new Mud()},
+//			{ new Water(), new Water(), new Water(), new Water(), new Water(), new Sand() , new Stone(), new FineStone(), new FineStone(), new FineStone()}
+//	};
+	
 	private ObjectSprite[][] model = { 
-			{ new Stone(), new Grass(), new Grass(), new Grass(), new Grass(), new Grass() , new Grass(), new Grass(), new Grass(), new GrassStone()},
-			{ new Grass(), new Stone(), new Grass(), new Grass(), new Grass(), new Grass() , new Grass(), new Grass(), new Grass(), new GrassStone()},
-			{ new Grass(), new Grass(), new GrassStone(), new Grass(), new Grass(), new Grass() , new Grass(), new Grass(), new Grass(), new GrassStone()},
-			{ new Grass(), new Grass(), new Grass(), new Stone(), new Grass(), new Grass() , new Grass(), new Grass(), new Grass(), new GrassStone()},
-			{ new GrassStone(), new GrassStone(), new GrassStone(), new GrassStone(), new Stone(), new Grass() , new Grass(), new Grass(), new Grass(), new GrassStone()},
-			{ new Sand(), new Sand(), new Sand(), new Sand(), new Stone(), new Stone() , new Stone(), new Grass(), new Grass(), new Stone()},
-			{ new SandWater(), new SandWater(), new SandWater(), new SandWater(), new Sand(), new Sand() , new Stone(), new Grass(), new Grass(), new Stone()},
-			{ new Water(), new Water(), new Water(), new SandWater(), new Sand(), new Sand() , new Stone(), new Grass(), new Grass(), new Grass()},
-			{ new Water(), new Water(), new Water(), new Water(), new SandWater(), new Sand() , new Stone(), new Mud(), new Mud(), new Mud()},
-			{ new Water(), new Water(), new Water(), new Water(), new Water(), new Sand() , new Stone(), new FineStone(), new FineStone(), new FineStone()}
+			{ TileFactory.getTileInstance("stoneImage"), TileFactory.getTileInstance("grassImage"), TileFactory.getTileInstance("grassImage"), TileFactory.getTileInstance("grassImage"), TileFactory.getTileInstance("grassImage"), TileFactory.getTileInstance("grassImage") , TileFactory.getTileInstance("grassImage"), TileFactory.getTileInstance("grassImage"), TileFactory.getTileInstance("grassImage"), TileFactory.getTileInstance("mossStoneImage")},
+			{ TileFactory.getTileInstance("grassImage"), TileFactory.getTileInstance("stoneImage"), TileFactory.getTileInstance("grassImage"), TileFactory.getTileInstance("grassImage"), TileFactory.getTileInstance("grassImage"), TileFactory.getTileInstance("grassImage") , TileFactory.getTileInstance("grassImage"), TileFactory.getTileInstance("grassImage"), TileFactory.getTileInstance("grassImage"), TileFactory.getTileInstance("mossStoneImage")},
+			{ TileFactory.getTileInstance("grassImage"), TileFactory.getTileInstance("grassImage"), TileFactory.getTileInstance("mossStoneImage"), TileFactory.getTileInstance("grassImage"), TileFactory.getTileInstance("grassImage"), TileFactory.getTileInstance("grassImage") , TileFactory.getTileInstance("grassImage"), TileFactory.getTileInstance("grassImage"), TileFactory.getTileInstance("grassImage"), TileFactory.getTileInstance("mossStoneImage")},
+			{ TileFactory.getTileInstance("grassImage"), TileFactory.getTileInstance("grassImage"), TileFactory.getTileInstance("grassImage"), TileFactory.getTileInstance("stoneImage"), TileFactory.getTileInstance("grassImage"), TileFactory.getTileInstance("grassImage") , TileFactory.getTileInstance("grassImage"), TileFactory.getTileInstance("grassImage"), TileFactory.getTileInstance("grassImage"), TileFactory.getTileInstance("mossStoneImage")},
+			{ TileFactory.getTileInstance("mossStoneImage"), TileFactory.getTileInstance("mossStoneImage"), TileFactory.getTileInstance("mossStoneImage"), TileFactory.getTileInstance("mossStoneImage"), TileFactory.getTileInstance("stoneImage"), TileFactory.getTileInstance("grassImage") , TileFactory.getTileInstance("grassImage"), TileFactory.getTileInstance("grassImage"), TileFactory.getTileInstance("grassImage"), TileFactory.getTileInstance("mossStoneImage")},
+			{ TileFactory.getTileInstance("sandImage"), TileFactory.getTileInstance("sandImage"), TileFactory.getTileInstance("sandImage"), TileFactory.getTileInstance("sandImage"), TileFactory.getTileInstance("stoneImage"), TileFactory.getTileInstance("stoneImage") , TileFactory.getTileInstance("stoneImage"), TileFactory.getTileInstance("grassImage"), TileFactory.getTileInstance("grassImage"), TileFactory.getTileInstance("stoneImage")},
+			{ TileFactory.getTileInstance("beachImage"), TileFactory.getTileInstance("beachImage"), TileFactory.getTileInstance("beachImage"), TileFactory.getTileInstance("beachImage"), TileFactory.getTileInstance("sandImage"), TileFactory.getTileInstance("sandImage") , TileFactory.getTileInstance("stoneImage"), TileFactory.getTileInstance("grassImage"), TileFactory.getTileInstance("grassImage"), TileFactory.getTileInstance("stoneImage")},
+			{ TileFactory.getTileInstance("waterImage"), TileFactory.getTileInstance("waterImage"), TileFactory.getTileInstance("waterImage"), TileFactory.getTileInstance("beachImage"), TileFactory.getTileInstance("sandImage"), TileFactory.getTileInstance("sandImage") , TileFactory.getTileInstance("stoneImage"), TileFactory.getTileInstance("grassImage"), TileFactory.getTileInstance("grassImage"), TileFactory.getTileInstance("grassImage")},
+			{ TileFactory.getTileInstance("waterImage"), TileFactory.getTileInstance("waterImage"), TileFactory.getTileInstance("waterImage"), TileFactory.getTileInstance("waterImage"), TileFactory.getTileInstance("beachImage"), TileFactory.getTileInstance("sandImage") , TileFactory.getTileInstance("stoneImage"), TileFactory.getTileInstance("mudImage"), TileFactory.getTileInstance("mudImage"), TileFactory.getTileInstance("mudImage")},
+			{ TileFactory.getTileInstance("waterImage"), TileFactory.getTileInstance("waterImage"), TileFactory.getTileInstance("waterImage"), TileFactory.getTileInstance("waterImage"), TileFactory.getTileInstance("waterImage"), TileFactory.getTileInstance("sandImage") , TileFactory.getTileInstance("stoneImage"), TileFactory.getTileInstance("fineStoneImage"), TileFactory.getTileInstance("fineStoneImage"), TileFactory.getTileInstance("fineStoneImage")}
 	};
 	
 	//This matrix is a representation of where objects (things) in the game are placed
