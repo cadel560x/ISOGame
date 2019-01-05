@@ -2,18 +2,19 @@ package ie.gmit.sw;
 
 import java.awt.*;
 import java.awt.event.*;
-import java.awt.image.*;
+//import java.awt.image.*;
 import javax.swing.*;
 import javax.swing.Timer;
 
 import ie.gmit.sw.sprites.ObjectSprite;
 import ie.gmit.sw.sprites.Avatar;
-import ie.gmit.sw.sprites.AvatarFactory;
-import ie.gmit.sw.sprites.Sprite;
+//import ie.gmit.sw.sprites.AvatarFactory;
+//import ie.gmit.sw.sprites.Sprite;
+import ie.gmit.sw.sprites.Tile;
 
-import javax.imageio.*;
-import java.io.*;
-import java.util.*;
+//import javax.imageio.*;
+//import java.io.*;
+//import java.util.*;
 
 /*
  * This is a God class and is doing way too much. The instance variables cover everything from isometric to 
@@ -27,20 +28,21 @@ public class GameView extends JPanel implements ActionListener  {
 
 	private Avatar player;
 //	private ImageManager img;
-	private Iso iso;
-	private EventManager manager;
+//	private Iso iso;
+//	private EventManager manager;
 
 	private Timer timer; //Controls the repaint interval.
 
 	//Do we really need two models like this?
 //	private int[][] matrix;
+//	private int[][] things;	
 	
 	private ObjectSprite[][] matrix;
 	private ObjectSprite[][] things;
 	
-	private BufferedImage[] tiles; //Note that all images, including sprites, have dimensions of 128 x 64. This make painting much simpler.
-	private BufferedImage[] objects; //Taller sprites can be created, by using two tiles (head torso, lower body and legs) and improve animations
-	private Color[] cartesian = {Color.GREEN, Color.GRAY, Color.DARK_GRAY, Color.ORANGE, Color.CYAN, Color.YELLOW, Color.PINK, Color.BLACK}; //This is a 2D representation
+//	private BufferedImage[] tiles; //Note that all images, including sprites, have dimensions of 128 x 64. This make painting much simpler.
+//	private BufferedImage[] objects; //Taller sprites can be created, by using two tiles (head torso, lower body and legs) and improve animations
+//	private Color[] cartesian = {Color.GREEN, Color.GRAY, Color.DARK_GRAY, Color.ORANGE, Color.CYAN, Color.YELLOW, Color.PINK, Color.BLACK}; //This is a 2D representation
 	
 	private boolean isIsometric = true; //Toggle between 2D and Isometric (Z key)
 	
@@ -53,10 +55,10 @@ public class GameView extends JPanel implements ActionListener  {
 	public GameView(ObjectSprite[][] matrix, ObjectSprite[][] things, Avatar player) throws Exception {
 		this.player = player;
 //		img = new ImageManager();
-		iso = new Iso();
+//		iso = new Iso();
 		
 		
-		init();
+//		init();
 		this.matrix = matrix;
 		this.things = things;
 		
@@ -70,13 +72,10 @@ public class GameView extends JPanel implements ActionListener  {
 	
 	
 	
-	private void init() throws Exception {
+//	private void init() throws Exception {
 //		tiles = img.loadImages("./resources/images/ground", tiles);
 //		objects = img.loadImages("./resources/images/objects", objects);
-		
-		tiles = ImageManager.loadImages("./resources/images/ground", tiles);
-		objects = ImageManager.loadImages("./resources/images/objects", objects);
-	}
+//	}
 	
 	public void toggleView() {
 		isIsometric = !isIsometric;
@@ -93,7 +92,8 @@ public class GameView extends JPanel implements ActionListener  {
 		
 		super.paintComponent(g);
 		Graphics2D g2 = (Graphics2D) g;
-		int imageIndex = -1, x1 = 0, y1 = 0;
+//		int imageIndex = -1;
+		int x1 = 0, y1 = 0;
 		Point point;
 		
 		for (int row = 0; row < matrix.length; row++) {
@@ -103,8 +103,8 @@ public class GameView extends JPanel implements ActionListener  {
 //				if (imageIndex >= 0 && imageIndex < tiles.length) {
 					//Paint the ground tiles
 					if (isIsometric) {
-						x1 = iso.getIsoX(col, row);
-						y1 = iso.getIsoY(col, row);
+						x1 = Iso.getIsoX(col, row);
+						y1 = Iso.getIsoY(col, row);
 						
 //						g2.drawImage(tiles[Properties.getDefaultImageIndex()], x1, y1, null);
 //						if (imageIndex > Properties.getDefaultImageIndex()) {
@@ -118,8 +118,11 @@ public class GameView extends JPanel implements ActionListener  {
 //						y1 = row * Properties.getTileHeight();
 						y1 = row * Properties.getInteger("TILE_HEIGHT");
 						
-	        			if (imageIndex < cartesian.length) {
-	        				g2.setColor(cartesian[imageIndex]);
+						Color tileColor = ((Tile)matrix[row][col]).getColor();
+//	        			if (imageIndex < cartesian.length) {
+						if (tileColor != null) {
+//	        				g2.setColor(cartesian[imageIndex]);
+							g2.setColor(tileColor);
 	        			}else {
 	        				g2.setColor(Color.WHITE);
 	        			}
@@ -142,7 +145,7 @@ public class GameView extends JPanel implements ActionListener  {
 		} // end loop
 		
 		//Paint the player on  the ground
-		point = iso.getIso(player.getPosition().getX(), player.getPosition().getY());
+		point = Iso.getIso(player.getPosition().getX(), player.getPosition().getY());
 		g2.drawImage(player.getImage(), point.getX(), point.getY(), null);
 	
 	} // end method

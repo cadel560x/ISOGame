@@ -1,8 +1,11 @@
 package ie.gmit.sw.sprites;
 
+import java.awt.Color;
+
 public class Tile extends ObjectSprite {
 //	Flyweight pattern: extrinsic state
 //	Fields
+	private Color color;
 	private boolean water;
 	private int movementCost;
 	
@@ -32,6 +35,14 @@ public class Tile extends ObjectSprite {
 
 	public void setMovementCost(int movementCost) {
 		this.movementCost = movementCost;
+	}
+
+	public Color getColor() {
+		return color;
+	}
+
+	public void setColor(Color color) {
+		this.color = color;
 	}
 	
 } // end class

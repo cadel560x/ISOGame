@@ -1,10 +1,9 @@
 package ie.gmit.sw.sprites;
 
+import java.awt.Color;
 import java.awt.image.BufferedImage;
-
 import java.util.HashMap;
 import java.util.Map;
-
 
 import ie.gmit.sw.ImageManager;
 import ie.gmit.sw.Properties;
@@ -14,10 +13,12 @@ public class TileFactory {
 	private static TileFactory instance = new TileFactory();
 	
 	private static Map<String, BufferedImage> imageMap;
+	private static Map<String, Color> colorMap;
 	
 	
 	private TileFactory() {
 		imageMap = new HashMap<>();
+		colorMap = new HashMap<>();
 		
 		try {
 //			Flyweight pattern: intrinsic state
@@ -33,6 +34,16 @@ public class TileFactory {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
+		colorMap.put("stoneImage", Color.GRAY);
+		colorMap.put("grassImage", Color.GREEN);
+		colorMap.put("waterImage", Color.CYAN);
+		colorMap.put("sandImage", Color.ORANGE);
+		colorMap.put("mudImage", Color.PINK);
+		colorMap.put("beachImage", Color.YELLOW);
+		colorMap.put("fineStoneImage", Color.BLACK);
+		colorMap.put("mossStoneImage", Color.DARK_GRAY);
+		
 	}
 	
 	
@@ -44,6 +55,7 @@ public class TileFactory {
 	public static Tile getTileInstance(String tileName) throws Exception {
 		Tile tile = new Tile();
 		tile.image = imageMap.get(tileName);
+		tile.setColor(colorMap.get(tileName));
 		
 		return tile;
 	}

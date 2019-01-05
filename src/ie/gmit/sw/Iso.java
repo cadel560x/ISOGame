@@ -2,7 +2,7 @@ package ie.gmit.sw;
 
 public class Iso {
 
-	public int getIsoX(int x, int y) {
+	public static int getIsoX(int x, int y) {
 //		int rshift = (Properties.getDefaultViewSize() / 2) - (Properties.getTileWidth() / 2) + (x - y); // Pan camera to the right
 //		return (x - y) * (Properties.getTileWidth() / 2) + rshift;
 		
@@ -12,14 +12,16 @@ public class Iso {
 	} // end method
 
 	
-	public int getIsoY(int x, int y) {
+	public static int getIsoY(int x, int y) {
 //		return (x + y) * (Properties.getTileHeight() / 2);
 		return (x + y) * (Properties.getInteger("TILE_HEIGHT") / 2);
-	}
+		
+	} // end method
 
 	
-	public Point getIso(int x, int y) {
+	public static Point getIso(int x, int y) {
 		return new Point(getIsoX(x, y), getIsoY(x, y)); // Could be more efficient...
-	}
+		
+	} // end method
 
 } // end class
