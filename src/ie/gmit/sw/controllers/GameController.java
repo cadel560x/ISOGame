@@ -7,10 +7,16 @@ import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JOptionPane;
 import javax.swing.Timer;
 
 import ie.gmit.sw.model.sprites.avatars.Avatar;
 import ie.gmit.sw.model.sprites.avatars.Direction;
+import ie.gmit.sw.model.sprites.objects.Chest;
+import ie.gmit.sw.model.sprites.objects.Hole;
+import ie.gmit.sw.model.sprites.objects.ObjectSprite;
+import ie.gmit.sw.model.sprites.objects.ObjectSpriteFactory;
+import ie.gmit.sw.model.sprites.objects.Sign;
 import ie.gmit.sw.view.CartesianView;
 import ie.gmit.sw.view.GameView;
 import ie.gmit.sw.view.IsoView;
@@ -40,6 +46,9 @@ public class GameController implements KeyListener, ActionListener{
 	/** The view painter index. */
 	private int viewPainterIndex;
 	
+	/** The objects. */
+	private ObjectSprite[][] objects;
+	
 	
 	
 /**
@@ -57,6 +66,8 @@ public class GameController implements KeyListener, ActionListener{
 		this.viewPainterList.add(new CartesianView());
 		
 		this.gameView.setViewPainter(viewPainterList.get(0));
+		
+		this.objects = gameView.getThings();
 		
 		timer = new Timer(100, this); //calls the actionPerformed() method every 100ms
 		timer.start(); //Start the timer
@@ -98,6 +109,38 @@ public class GameController implements KeyListener, ActionListener{
 		} else if (e.getKeyCode() == KeyEvent.VK_X) {
 			System.out.println("Move");
 			player.move();
+		} else if (e.getKeyCode() == KeyEvent.VK_C) {
+
+			System.out.println("Collect");
+
+			// Player has landed on chest grid
+			if (objects[player.getPosition().getY()][+player.getPosition().getX()] instanceof Chest) {
+				Chest chest = (Chest)objects[player.getPosition().getY()][+player.getPosition().getX()];
+				
+				// Update player health points
+				player.setHealthPoints(player.getHealthPoints() + chest.getHealthPoints());
+				System.out.println("player health points: " + player.getHealthPoints());
+				// remove chest from game
+				try {
+					objects[player.getPosition().getY()][+player.getPosition().getX()] = ObjectSpriteFactory.getAirInstance();
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+			}
+			else if(objects[player.getPosition().getY()][+player.getPosition().getX()] instanceof Sign) {
+				Sign sign = (Sign)objects[player.getPosition().getY()][+player.getPosition().getX()];
+				JOptionPane.showMessageDialog(null, sign.getMessage(), "Game Complete" , JOptionPane.INFORMATION_MESSAGE);
+				System.out.println("Sign interacted with");
+				
+			}
+
+			// If player presses C while on hole
+			else if (objects[player.getPosition().getY()][player.getPosition().getX()] instanceof Hole) {
+				Hole hole = (Hole)objects[player.getPosition().getY()][+player.getPosition().getX()];
+				JOptionPane.showMessageDialog(null,hole.getMessage(),  "Game Complete" , JOptionPane.INFORMATION_MESSAGE);
+				System.out.println("END");
+				System.exit(0);
+			}
 		} else {
 			return;
 		}

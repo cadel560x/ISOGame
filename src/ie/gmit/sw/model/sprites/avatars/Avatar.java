@@ -14,6 +14,8 @@ import ie.gmit.sw.model.sprites.objects.ObjectSprite;
  * The Class Avatar.
  */
 public class Avatar extends Sprite {
+
+/** The health points. */
 //	Fields
 	private int healthPoints = 100;
 	/** The position. */
@@ -148,10 +150,20 @@ public class Avatar extends Sprite {
 	}
 
 	
+	/**
+	 * Gets the health points.
+	 *
+	 * @return the health points
+	 */
 	public int getHealthPoints() {
 		return healthPoints;
 	}
 
+	/**
+	 * Sets the health points.
+	 *
+	 * @param healthPoints the new health points
+	 */
 	public void setHealthPoints(int healthPoints) {
 		this.healthPoints = healthPoints;
 	}

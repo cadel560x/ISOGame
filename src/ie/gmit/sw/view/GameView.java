@@ -104,13 +104,31 @@ public class GameView extends JPanel implements ActionListener  {
 		this.matrix = matrix;
 	}
 
+	/**
+	 * Gets the things.
+	 *
+	 * @return the things
+	 */
+	public ObjectSprite[][] getThings() {
+		return things;
+	}
+
+	/**
+	 * Sets the things.
+	 *
+	 * @param things the new things
+	 */
+	public void setThings(ObjectSprite[][] things) {
+		this.things = things;
+	}
 
 
 
+
+//	Abstract methods implementation
 	/* (non-Javadoc)
 	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */
-	//	Abstract methods implementation
 	@Override
 	public void actionPerformed(ActionEvent e) { //This is called each time the timer reaches zero
 		this.repaint();
