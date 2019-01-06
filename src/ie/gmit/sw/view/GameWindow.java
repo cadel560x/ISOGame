@@ -9,13 +9,13 @@ import ie.gmit.sw.controllers.EventManager;
 import ie.gmit.sw.model.sprites.Point;
 import ie.gmit.sw.model.sprites.avatars.Avatar;
 import ie.gmit.sw.model.sprites.avatars.AvatarFactory;
-import ie.gmit.sw.model.sprites.objects.Chest;
-import ie.gmit.sw.model.sprites.objects.Hole;
+//import ie.gmit.sw.model.sprites.objects.Chest;
+//import ie.gmit.sw.model.sprites.objects.Hole;
 import ie.gmit.sw.model.sprites.objects.ObjectSprite;
 import ie.gmit.sw.model.sprites.objects.ObjectSpriteFactory;
-import ie.gmit.sw.model.sprites.objects.Sign;
+//import ie.gmit.sw.model.sprites.objects.Sign;
 import ie.gmit.sw.model.sprites.objects.TileFactory;
-import ie.gmit.sw.model.sprites.objects.Tree;
+//import ie.gmit.sw.model.sprites.objects.Tree;
 import ie.gmit.sw.util.Properties;
 
 public class GameWindow {
@@ -108,6 +108,8 @@ public class GameWindow {
 	
 //	private ImageManager img;
 	private Avatar player;
+//	private GameView gameView;
+	private GameView view;
 	
 	
 	
@@ -128,22 +130,36 @@ public class GameWindow {
 		player.setPosition(new Point(0,0));
 		
 //		GameView view = new GameView(model, objects, player);
-		GameView view = new GameView(model, objects, player);
+		view = new GameView(model, objects, player);
+//		IsoView view = new IsoView(model, objects, player);
+//		gameView = new GameView(model, objects, player);
+		
 		EventManager manager = new EventManager(player, view);
+//		EventManager manager = new EventManager(player, gameView);
+		
 //		Dimension d = new Dimension(Properties.getDefaultViewSize(), Properties.getDefaultViewSize()/2);
 		Dimension d = new Dimension(Properties.getInteger("DEFAULT_VIEW_SIZE"), Properties.getInteger("DEFAULT_VIEW_SIZE")/2);
 		view.setPreferredSize(d);
 		view.setMinimumSize(d);
 		view.setMaximumSize(d);
+		
+//		gameView.setPreferredSize(d);
+//		gameView.setMinimumSize(d);
+//		gameView.setMaximumSize(d);
 
 		JFrame f = new JFrame("GMIT - B.Sc. in Computing (Software Development)");
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f.getContentPane().setLayout(new FlowLayout());
+		
 		f.add(view);
+//		f.add(gameView);
+		
 		f.addKeyListener(manager);
 		f.setSize(1000, 1000);
 		f.setLocation(100, 100);
 		f.pack();
 		f.setVisible(true);
-	}
-}
+		
+	} // end constructor
+	
+}  // end class

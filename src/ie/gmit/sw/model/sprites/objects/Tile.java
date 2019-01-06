@@ -14,7 +14,7 @@ public class Tile extends ObjectSprite {
 	
 //	Constructors
 	public Tile() {
-		
+		this.water = false;
 	}
 
 	

@@ -79,6 +79,10 @@ public class TileFactory {
 		tile.image = imageMap.get(tileName);
 		tile.setColor(colorMap.get(tileName));
 		
+		if(tileName.equals("waterImage")) {
+			tile.setWater(true);
+		}
+		
 		return tile;
 		
 	} // end method
