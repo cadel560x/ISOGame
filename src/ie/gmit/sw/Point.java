@@ -1,4 +1,4 @@
-package ie.gmit.sw.model.sprites;
+package ie.gmit.sw;
 
 public class Point {
 	private int x;
