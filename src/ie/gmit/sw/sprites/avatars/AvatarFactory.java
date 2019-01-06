@@ -1,6 +1,6 @@
-package ie.gmit.sw.sprites;
+package ie.gmit.sw.sprites.avatars;
 
-import ie.gmit.sw.ImageManager;
+import ie.gmit.sw.util.ImageManager;
 
 
 

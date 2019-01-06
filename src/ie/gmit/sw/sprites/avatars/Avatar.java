@@ -1,12 +1,11 @@
-package ie.gmit.sw.sprites;
+package ie.gmit.sw.sprites.avatars;
 
 import java.awt.image.BufferedImage;
 
-import ie.gmit.sw.Direction;
-import ie.gmit.sw.Moveable;
-import ie.gmit.sw.Point;
+import ie.gmit.sw.sprites.Point;
+import ie.gmit.sw.sprites.Sprite;
 
-public class Avatar extends Sprite implements Moveable {
+public class Avatar extends Sprite {
 //	Fields
 	private Point position; //The current x, y position
 	private Direction direction = Direction.DOWN; //The current orientation of the sprite
@@ -69,7 +68,6 @@ public class Avatar extends Sprite implements Moveable {
     
     
 //	Implemented abstract methods
-	@Override
 	public void move() { //This method is suspiciously like one I've seen already....
 		step(direction);
 		

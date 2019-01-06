@@ -1,4 +1,4 @@
-package ie.gmit.sw;
+package ie.gmit.sw.view;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -6,11 +6,12 @@ import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.Timer;
 
-import ie.gmit.sw.sprites.ObjectSprite;
-import ie.gmit.sw.sprites.Avatar;
-//import ie.gmit.sw.sprites.AvatarFactory;
-//import ie.gmit.sw.sprites.Sprite;
-import ie.gmit.sw.sprites.Tile;
+import ie.gmit.sw.sprites.Point;
+import ie.gmit.sw.sprites.avatars.Avatar;
+import ie.gmit.sw.sprites.objects.ObjectSprite;
+import ie.gmit.sw.sprites.objects.Tile;
+import ie.gmit.sw.util.Iso;
+import ie.gmit.sw.util.Properties;
 
 //import javax.imageio.*;
 //import java.io.*;

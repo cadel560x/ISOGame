@@ -1,11 +1,11 @@
-package ie.gmit.sw.sprites;
+package ie.gmit.sw.sprites.objects;
 
 import java.awt.image.BufferedImage;
 import java.util.HashMap;
 import java.util.Map;
 
-import ie.gmit.sw.ImageManager;
-import ie.gmit.sw.Properties;
+import ie.gmit.sw.util.ImageManager;
+import ie.gmit.sw.util.Properties;
 
 
 

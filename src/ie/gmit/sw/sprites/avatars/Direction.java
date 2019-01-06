@@ -1,4 +1,4 @@
-package ie.gmit.sw;
+package ie.gmit.sw.sprites.avatars;
 
 public enum Direction {
 	UP (0), 

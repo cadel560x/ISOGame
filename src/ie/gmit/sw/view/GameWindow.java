@@ -1,19 +1,22 @@
-package ie.gmit.sw;
+package ie.gmit.sw.view;
 
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 
 import javax.swing.JFrame;
 
-import ie.gmit.sw.sprites.Avatar;
-import ie.gmit.sw.sprites.AvatarFactory;
-import ie.gmit.sw.sprites.Chest;
-import ie.gmit.sw.sprites.Hole;
-import ie.gmit.sw.sprites.ObjectSprite;
-import ie.gmit.sw.sprites.ObjectSpriteFactory;
-import ie.gmit.sw.sprites.Sign;
-import ie.gmit.sw.sprites.TileFactory;
-import ie.gmit.sw.sprites.Tree;
+import ie.gmit.sw.controllers.EventManager;
+import ie.gmit.sw.sprites.Point;
+import ie.gmit.sw.sprites.avatars.Avatar;
+import ie.gmit.sw.sprites.avatars.AvatarFactory;
+import ie.gmit.sw.sprites.objects.Chest;
+import ie.gmit.sw.sprites.objects.Hole;
+import ie.gmit.sw.sprites.objects.ObjectSprite;
+import ie.gmit.sw.sprites.objects.ObjectSpriteFactory;
+import ie.gmit.sw.sprites.objects.Sign;
+import ie.gmit.sw.sprites.objects.TileFactory;
+import ie.gmit.sw.sprites.objects.Tree;
+import ie.gmit.sw.util.Properties;
 
 public class GameWindow {
 	/*

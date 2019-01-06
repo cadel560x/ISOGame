@@ -1,21 +1,28 @@
-package ie.gmit.sw.sprites;
+package ie.gmit.sw.sprites.objects;
 
 import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.util.HashMap;
 import java.util.Map;
 
-import ie.gmit.sw.ImageManager;
-import ie.gmit.sw.Properties;
+import ie.gmit.sw.util.ImageManager;
+import ie.gmit.sw.util.Properties;
+
+
+
 
 // Singleton
 public class TileFactory {
+//	Data members
 	private static TileFactory instance = new TileFactory();
 	
 	private static Map<String, BufferedImage> imageMap;
 	private static Map<String, Color> colorMap;
 	
 	
+	
+	
+//	Constructors
 	private TileFactory() {
 		imageMap = new HashMap<>();
 		colorMap = new HashMap<>();
@@ -47,6 +54,21 @@ public class TileFactory {
 	}
 	
 	
+	
+
+//	Delegate methods
+	public Color putColor(String key, Color value) {
+		return colorMap.put(key, value);
+	}
+	
+	public BufferedImage putImage(String key, BufferedImage value) {
+		return imageMap.put(key, value);
+	}
+	
+	
+	
+	
+//	Other methods
 	public static TileFactory getInstance() {
 		return instance;
 	}
@@ -58,7 +80,7 @@ public class TileFactory {
 		tile.setColor(colorMap.get(tileName));
 		
 		return tile;
-	}
+		
+	} // end method
 	
-	
-}
+} // end class

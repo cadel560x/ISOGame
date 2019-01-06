@@ -18,7 +18,7 @@ package ie.gmit.sw.sprites;
 
 
 
-public class Sprite { //Sprite belongs in some sort of hierarchy....
+public abstract class Sprite { //Sprite belongs in some sort of hierarchy....
 //	Fields
 	private String name; //The name of the sprite
 	 
