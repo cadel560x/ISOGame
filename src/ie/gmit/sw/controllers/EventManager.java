@@ -7,8 +7,8 @@ import java.awt.event.KeyListener;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
-import ie.gmit.sw.sprites.avatars.Avatar;
-import ie.gmit.sw.sprites.avatars.Direction;
+import ie.gmit.sw.model.sprites.avatars.Avatar;
+import ie.gmit.sw.model.sprites.avatars.Direction;
 import ie.gmit.sw.view.GameView;
 
 public class EventManager implements KeyListener{

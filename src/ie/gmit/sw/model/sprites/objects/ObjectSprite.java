@@ -1,8 +1,8 @@
-package ie.gmit.sw.sprites.objects;
+package ie.gmit.sw.model.sprites.objects;
 
 import java.awt.image.BufferedImage;
 
-import ie.gmit.sw.sprites.Sprite;
+import ie.gmit.sw.model.sprites.Sprite;
 
 public abstract class ObjectSprite extends Sprite {
 //	Fields

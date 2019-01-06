@@ -1,4 +1,4 @@
-package ie.gmit.sw.sprites.objects;
+package ie.gmit.sw.model.sprites.objects;
 
 //import ie.gmit.sw.ImageManager;
 

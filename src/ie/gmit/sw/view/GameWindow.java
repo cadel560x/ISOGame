@@ -6,16 +6,16 @@ import java.awt.FlowLayout;
 import javax.swing.JFrame;
 
 import ie.gmit.sw.controllers.EventManager;
-import ie.gmit.sw.sprites.Point;
-import ie.gmit.sw.sprites.avatars.Avatar;
-import ie.gmit.sw.sprites.avatars.AvatarFactory;
-import ie.gmit.sw.sprites.objects.Chest;
-import ie.gmit.sw.sprites.objects.Hole;
-import ie.gmit.sw.sprites.objects.ObjectSprite;
-import ie.gmit.sw.sprites.objects.ObjectSpriteFactory;
-import ie.gmit.sw.sprites.objects.Sign;
-import ie.gmit.sw.sprites.objects.TileFactory;
-import ie.gmit.sw.sprites.objects.Tree;
+import ie.gmit.sw.model.sprites.Point;
+import ie.gmit.sw.model.sprites.avatars.Avatar;
+import ie.gmit.sw.model.sprites.avatars.AvatarFactory;
+import ie.gmit.sw.model.sprites.objects.Chest;
+import ie.gmit.sw.model.sprites.objects.Hole;
+import ie.gmit.sw.model.sprites.objects.ObjectSprite;
+import ie.gmit.sw.model.sprites.objects.ObjectSpriteFactory;
+import ie.gmit.sw.model.sprites.objects.Sign;
+import ie.gmit.sw.model.sprites.objects.TileFactory;
+import ie.gmit.sw.model.sprites.objects.Tree;
 import ie.gmit.sw.util.Properties;
 
 public class GameWindow {

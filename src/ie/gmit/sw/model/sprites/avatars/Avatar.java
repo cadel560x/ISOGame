@@ -1,9 +1,9 @@
-package ie.gmit.sw.sprites.avatars;
+package ie.gmit.sw.model.sprites.avatars;
 
 import java.awt.image.BufferedImage;
 
-import ie.gmit.sw.sprites.Point;
-import ie.gmit.sw.sprites.Sprite;
+import ie.gmit.sw.model.sprites.Point;
+import ie.gmit.sw.model.sprites.Sprite;
 
 public class Avatar extends Sprite {
 //	Fields

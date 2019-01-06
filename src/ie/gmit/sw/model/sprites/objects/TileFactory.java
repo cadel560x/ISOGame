@@ -1,4 +1,4 @@
-package ie.gmit.sw.sprites.objects;
+package ie.gmit.sw.model.sprites.objects;
 
 import java.awt.Color;
 import java.awt.image.BufferedImage;

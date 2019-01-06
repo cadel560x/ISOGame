@@ -6,10 +6,10 @@ import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.Timer;
 
-import ie.gmit.sw.sprites.Point;
-import ie.gmit.sw.sprites.avatars.Avatar;
-import ie.gmit.sw.sprites.objects.ObjectSprite;
-import ie.gmit.sw.sprites.objects.Tile;
+import ie.gmit.sw.model.sprites.Point;
+import ie.gmit.sw.model.sprites.avatars.Avatar;
+import ie.gmit.sw.model.sprites.objects.ObjectSprite;
+import ie.gmit.sw.model.sprites.objects.Tile;
 import ie.gmit.sw.util.Iso;
 import ie.gmit.sw.util.Properties;
 

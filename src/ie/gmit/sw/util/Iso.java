@@ -1,6 +1,6 @@
 package ie.gmit.sw.util;
 
-import ie.gmit.sw.sprites.Point;
+import ie.gmit.sw.model.sprites.Point;
 
 public class Iso {
 
