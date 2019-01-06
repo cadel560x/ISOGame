@@ -11,17 +11,29 @@ import ie.gmit.sw.util.Properties;
 
 
 
+// TODO: Auto-generated Javadoc
+/**
+ * A factory for creating Tile objects.
+ */
 // Singleton
 public class TileFactory {
+
+/** The instance. */
 //	Data members
 	private static TileFactory instance = new TileFactory();
 	
+	/** The image map. */
 	private static Map<String, BufferedImage> imageMap;
+	
+	/** The color map. */
 	private static Map<String, Color> colorMap;
 	
 	
 	
 	
+/**
+ * Instantiates a new tile factory.
+ */
 //	Constructors
 	private TileFactory() {
 		imageMap = new HashMap<>();
@@ -56,11 +68,25 @@ public class TileFactory {
 	
 	
 
+/**
+ * Put color.
+ *
+ * @param key the key
+ * @param value the value
+ * @return the color
+ */
 //	Delegate methods
 	public Color putColor(String key, Color value) {
 		return colorMap.put(key, value);
 	}
 	
+	/**
+	 * Put image.
+	 *
+	 * @param key the key
+	 * @param value the value
+	 * @return the buffered image
+	 */
 	public BufferedImage putImage(String key, BufferedImage value) {
 		return imageMap.put(key, value);
 	}
@@ -68,12 +94,24 @@ public class TileFactory {
 	
 	
 	
+/**
+ * Gets the single instance of TileFactory.
+ *
+ * @return single instance of TileFactory
+ */
 //	Other methods
 	public static TileFactory getInstance() {
 		return instance;
 	}
 	
 	
+	/**
+	 * Gets the tile instance.
+	 *
+	 * @param tileName the tile name
+	 * @return the tile instance
+	 * @throws Exception the exception
+	 */
 	public static Tile getTileInstance(String tileName) throws Exception {
 		Tile tile = new Tile();
 		tile.image = imageMap.get(tileName);

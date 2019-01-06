@@ -2,7 +2,18 @@ package ie.gmit.sw;
 
 import ie.gmit.sw.view.GameWindow;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Runner.
+ */
 public class Runner {
+	
+	/**
+	 * The main method.
+	 *
+	 * @param args the arguments
+	 * @throws Exception the exception
+	 */
 	public static void main(String[] args) throws Exception {
 		//Can read in necessary information here and process it before going any further...
 		
@@ -19,7 +30,8 @@ public class Runner {
 					 * Toggle View: 'Z'		
 					 * ----------------------------------------
 					 */
-						new GameWindow(); //Could be done nicer?
+						new GameWindow();
+					
 				} catch (Exception e) {
 					e.printStackTrace(); //Real lazy stuff here...
 				}

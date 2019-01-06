@@ -3,178 +3,170 @@ package ie.gmit.sw.view;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-//import java.awt.*;
 import java.awt.event.*;
-//import java.awt.image.*;
 import javax.swing.*;
-//import javax.swing.Timer;
 
 import ie.gmit.sw.model.sprites.Point;
-//import ie.gmit.sw.model.sprites.Point;
 import ie.gmit.sw.model.sprites.avatars.Avatar;
 import ie.gmit.sw.model.sprites.objects.ObjectSprite;
-//import ie.gmit.sw.model.sprites.objects.Tile;
 import ie.gmit.sw.util.Iso;
-//import ie.gmit.sw.util.Properties;
 
-//import javax.imageio.*;
-//import java.io.*;
-//import java.util.*;
 
-/*
- * This is a God class and is doing way too much. The instance variables cover everything from isometric to 
- * Cartesian drawing and the class has methods for loading images and converting from one coordinate space to
- * another.
- * 
+
+
+// TODO: Auto-generated Javadoc
+/**
+ * The Class GameView.
  */
-
-//public abstract class GameView extends JPanel implements ActionListener  { 
 public class GameView extends JPanel implements ActionListener  { 
 	
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 777L;
 
+/** The instance. */
+//	Singleton
+	private static GameView instance;
+	
+/** The player. */
 //	Fields
 	private Avatar player;
-//	private ImageManager img;
-//	private Iso iso;
-//	private EventManager manager;
-
-//	private Timer timer; //Controls the repaint interval.
-
-	//Do we really need two models like this?
-//	private int[][] matrix;
-//	private int[][] things;	
 	
+	/** The matrix. */
 	private ObjectSprite[][] matrix;
+	
+	/** The things. */
 	private ObjectSprite[][] things;
 	
+/** The view painter. */
 //	Strategy pattern
 	private ViewPainter viewPainter;
+
 	
-//	private BufferedImage[] tiles; //Note that all images, including sprites, have dimensions of 128 x 64. This make painting much simpler.
-//	private BufferedImage[] objects; //Taller sprites can be created, by using two tiles (head torso, lower body and legs) and improve animations
-//	private Color[] cartesian = {Color.GREEN, Color.GRAY, Color.DARK_GRAY, Color.ORANGE, Color.CYAN, Color.YELLOW, Color.PINK, Color.BLACK}; //This is a 2D representation
+		
 	
-//	private boolean isIsometric = true; //Toggle between 2D and Isometric (Z key)
-	
-	
-	
-	
+/**
+ * Instantiates a new game view.
+ *
+ * @param matrix the matrix
+ * @param things the things
+ * @param player the player
+ * @throws Exception the exception
+ */
 //	Constructors
-//	public GameView(int[][] matrix, ObjectSprite[][] things, Player player) throws Exception {
-	
-//	public GameView(int[][] matrix, ObjectSprite[][] things, Avatar player) throws Exception {
-	public GameView(ObjectSprite[][] matrix, ObjectSprite[][] things, Avatar player) throws Exception {
+	private GameView(ObjectSprite[][] matrix, ObjectSprite[][] things, Avatar player) throws Exception {
 		this.player = player;
-//		img = new ImageManager();
-//		iso = new Iso();
-		
-		
-//		init();
+
 		this.matrix = matrix;
 		this.things = things;
 		
 		setBackground(Color.WHITE);
 		setDoubleBuffered(true); //Each image is buffered twice to avoid tearing / stutter
 		
-//		timer = new Timer(100, this); //calls the actionPerformed() method every 100ms
-//		timer.start(); //Start the timer
 	}
 	
 	
 	
 	
+/**
+ * Gets the view painter.
+ *
+ * @return the view painter
+ */
 //	Getters and setters
 	public ViewPainter getViewPainter() {
 		return viewPainter;
 	}
 
+	/**
+	 * Sets the view painter.
+	 *
+	 * @param viewPainter the new view painter
+	 */
 	public void setViewPainter(ViewPainter viewPainter) {
 		this.viewPainter = viewPainter;
 	}
 	
-	
-	
-	
-//	private void init() throws Exception {
-//		tiles = img.loadImages("./resources/images/ground", tiles);
-//		objects = img.loadImages("./resources/images/objects", objects);
-//	}
-	
-//	public void toggleView() {
-//		isIsometric = !isIsometric;
-//		this.repaint();
-//	}
-	
-//	Abstract methods implementation
+	/**
+	 * Gets the matrix.
+	 *
+	 * @return the matrix
+	 */
+	public ObjectSprite[][] getMatrix() {
+		return matrix;
+	}
+
+	/**
+	 * Sets the matrix.
+	 *
+	 * @param matrix the new matrix
+	 */
+	public void setMatrix(ObjectSprite[][] matrix) {
+		this.matrix = matrix;
+	}
+
+
+
+
+	/* (non-Javadoc)
+	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+	 */
+	//	Abstract methods implementation
 	@Override
 	public void actionPerformed(ActionEvent e) { //This is called each time the timer reaches zero
 		this.repaint();
 	}
 
-	public void paintComponent(Graphics g) { //This method needs to execute quickly...
+	
+	/* (non-Javadoc)
+	 * @see javax.swing.JComponent#paintComponent(java.awt.Graphics)
+	 */
+	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		Graphics2D g2 = (Graphics2D) g;
-////		int imageIndex = -1;
-//		int x1 = 0, y1 = 0;
 		Point point;
 		
 //		Strategy pattern
 		viewPainter.paintView(g2, matrix, things);
 		
-//		
-//		for (int row = 0; row < matrix.length; row++) {
-//			for (int col = 0; col < matrix[row].length; col++) {
-////				imageIndex = matrix[row][col];
-//				
-////				if (imageIndex >= 0 && imageIndex < tiles.length) {
-//					//Paint the ground tiles
-////					if (isIsometric) {
-////						x1 = Iso.getIsoX(col, row);
-////						y1 = Iso.getIsoY(col, row);
-////						
-//////						g2.drawImage(tiles[Properties.getDefaultImageIndex()], x1, y1, null);
-//////						if (imageIndex > Properties.getDefaultImageIndex()) {
-//////							g2.drawImage(tiles[imageIndex], x1, y1, null);
-//////						}
-////						
-////						g2.drawImage(matrix[row][col].getImage(), x1, y1, null);
-////					} else {
-////						x1 = col * Properties.getTileWidth();
-//						x1 = col * Properties.getInteger("TILE_WIDTH");
-////						y1 = row * Properties.getTileHeight();
-//						y1 = row * Properties.getInteger("TILE_HEIGHT");
-//						
-//						Color tileColor = ((Tile)matrix[row][col]).getColor();
-////	        			if (imageIndex < cartesian.length) {
-//						if (tileColor != null) {
-////	        				g2.setColor(cartesian[imageIndex]);
-//							g2.setColor(tileColor);
-//	        			}else {
-//	        				g2.setColor(Color.WHITE);
-//	        			}
-//						
-//	        			g2.fillRect(x1, y1, Properties.getInteger("TILE_WIDTH"), Properties.getInteger("TILE_HEIGHT"));
-//					
-////					} // end if-else
-//					
-//					//Paint the object or things on the ground
-////					imageIndex = things[row][col];
-////					g2.drawImage(objects[imageIndex], x1, y1, null);
-//					
-////					imageIndex = things[row][col];
-//					g2.drawImage(things[row][col].getImage(), x1, y1, null);
-//					
-////				} // end if
-//				
-//			} // end loop
-//			
-//		} // end loop
-//		
 		//Paint the player on  the ground
 		point = Iso.getIso(player.getPosition().getX(), player.getPosition().getY());
 		g2.drawImage(player.getImage(), point.getX(), point.getY(), null);
-//	
+		
 	} // end method
+	
+	
+	
+	
+/**
+ * Gets the single instance of GameView.
+ *
+ * @param matrix the matrix
+ * @param things the things
+ * @param player the player
+ * @return single instance of GameView
+ */
+//	Other methods
+	public static GameView getInstance(ObjectSprite[][] matrix, ObjectSprite[][] things, Avatar player) {
+	try {
+		if (instance == null) {
+			instance = new GameView(matrix, things, player);
+		}
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+	
+	return instance;
+	
+	} // end method
+	
+	
+	/**
+	 * Gets the single instance of GameView.
+	 *
+	 * @return single instance of GameView
+	 */
+	public static GameView getInstance() {
+		return instance;
+	}
 	
 }  // end class

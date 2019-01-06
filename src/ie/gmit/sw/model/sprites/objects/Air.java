@@ -1,14 +1,19 @@
 package ie.gmit.sw.model.sprites.objects;
 
-//import ie.gmit.sw.ImageManager;
 
-// Get rid of this class because 'Air' doesn't interact with anything or anybody
+
+
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Air.
+ */
 public class Air extends ObjectSprite {
+//	Constructors
+	/**
+	 * Instantiates a new air.
+	 */
 	public Air() {
-//		try {
-//			image = ImageManager.loadImage("./resources/images/objects/0000.png");
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
+
 	}
-}
+	
+} // end class

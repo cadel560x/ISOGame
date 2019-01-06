@@ -1,56 +1,53 @@
 package ie.gmit.sw.model.sprites;
 
-/*
- *   
- *   BufferedImage[][]
- *   --------------------------
- *   {U0, U1, U2, U3}, =>Up
- *   {D0, D1, D2, D3}, =>Down
- *   {L0, L1, L2, L3}, =>Left
- *   {R0, R1, R2, R3}, =>Right
- * 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Sprite.
  */
-
-//import java.awt.image.*;
-
-//import ie.gmit.sw.Point;
-
-
-
-
-public abstract class Sprite { //Sprite belongs in some sort of hierarchy....
-//	Fields
-	private String name; //The name of the sprite
+public abstract class Sprite {
+	 //	Fields
+	/** The name. */
+	private String name;
 	 
 	
 	
-	
-//	Constructors
+	//	Constructors
+	/**
+	 * Instantiates a new sprite.
+	 */
 	public Sprite() {
 		
 	}
 	
-//	public Sprite(String name, Point p) {
+	/**
+	 * Instantiates a new sprite.
+	 *
+	 * @param name the name
+	 */
 	public Sprite(String name) {
 		this.name = name;
-//		this.position = p;
-//		System.out.println("here");
 	}
 	
 	
 	
-	
+
 //	Getters and setters
+	/**
+	 * Gets the name.
+	 *
+	 * @return the name
+	 */
 	public String getName() {
 		return name;
 	}
 
+	/**
+	 * Sets the name.
+	 *
+	 * @param name the new name
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-//	public Point getPosition() {
-//		return position;
-//	}
 	
 } // end class

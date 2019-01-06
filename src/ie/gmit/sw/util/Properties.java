@@ -6,16 +6,26 @@ import java.util.Map;
 
 
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Properties.
+ */
 // Singleton
 public class Properties {
+
+/** The instance. */
 //	Fields
 	private static Properties instance = new Properties();
 	
+	/** The properties. */
 	private static Map<String, String> properties;
 	
 	
 	
 	
+/**
+ * Instantiates a new properties.
+ */
 //	Constructors
 	private Properties() {
 		properties = new HashMap<>();
@@ -59,6 +69,12 @@ public class Properties {
 	
 	
 	
+/**
+ * Gets the.
+ *
+ * @param key the key
+ * @return the string
+ */
 //	Delegate methods
 	public static String get(String key) {
 		return properties.get(key);
@@ -67,17 +83,34 @@ public class Properties {
 	
 	
 	
+/**
+ * Gets the single instance of Properties.
+ *
+ * @return single instance of Properties
+ */
 //	Other methods
 	public static Properties getInstance() {
 		return instance;
 	}
 	
 	
+	/**
+	 * Gets the integer.
+	 *
+	 * @param key the key
+	 * @return the integer
+	 */
 	public static int getInteger(String key) {
 		return Integer.parseInt(get(key));
 	}
 	
 	
+	/**
+	 * Gets the float.
+	 *
+	 * @param key the key
+	 * @return the float
+	 */
 	public static float getFloat(String key) {
 		return Float.parseFloat(get(key));
 	}

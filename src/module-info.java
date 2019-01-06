@@ -2,7 +2,7 @@
  * 
  */
 /**
- * @author Kevin Delassus
+ * @author Javier Mantilla
  *
  */
 open module gmit.software {

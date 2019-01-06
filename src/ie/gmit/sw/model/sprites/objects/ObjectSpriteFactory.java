@@ -9,16 +9,25 @@ import ie.gmit.sw.util.Properties;
 
 
 
+// TODO: Auto-generated Javadoc
+/**
+ * A factory for creating ObjectSprite objects.
+ */
 // Factory and Singleton
 public class ObjectSpriteFactory {
-//	Fields
+
+/** The instance. */
 	private static ObjectSpriteFactory instance = new ObjectSpriteFactory();
-	
+//	Fields
+	/** The image map. */
 	private static Map<String, BufferedImage> imageMap;
 	
 	
 	
 	
+/**
+ * Instantiates a new object sprite factory.
+ */
 //	Constructors
 	private ObjectSpriteFactory() {
 		imageMap = new HashMap<>();
@@ -39,12 +48,23 @@ public class ObjectSpriteFactory {
 	
 	
 //	Other methods
+	/**
+	 * Gets the single instance of ObjectSpriteFactory.
+	 *
+	 * @return single instance of ObjectSpriteFactory
+	 */
 	public static ObjectSpriteFactory getInstance() {
 		return instance;
 		
 	} // end method
 
 	
+	/**
+	 * Gets the tree instance.
+	 *
+	 * @return the tree instance
+	 * @throws Exception the exception
+	 */
 	public static Tree getTreeInstance() throws Exception {
 		Tree tree = new Tree();
 		tree.image = imageMap.get("treeImage");
@@ -54,6 +74,12 @@ public class ObjectSpriteFactory {
 	} // end method
 	
 	
+	/**
+	 * Gets the air instance.
+	 *
+	 * @return the air instance
+	 * @throws Exception the exception
+	 */
 	public static Air getAirInstance() throws Exception {
 		Air air = new Air();
 		air.image = imageMap.get("airImage");
@@ -63,6 +89,12 @@ public class ObjectSpriteFactory {
 	} // end method
 	
 	
+	/**
+	 * Gets the hole instance.
+	 *
+	 * @return the hole instance
+	 * @throws Exception the exception
+	 */
 	public static Hole getHoleInstance() throws Exception {
 		Hole hole = new Hole();
 		hole.image = imageMap.get("holeImage");
@@ -72,6 +104,12 @@ public class ObjectSpriteFactory {
 	} // end method
 	
 	
+	/**
+	 * Gets the chest instance.
+	 *
+	 * @return the chest instance
+	 * @throws Exception the exception
+	 */
 	public static Chest getChestInstance() throws Exception {
 		Chest chest = new Chest();
 		chest.image = imageMap.get("ChestImage");
@@ -81,6 +119,12 @@ public class ObjectSpriteFactory {
 	} // end method
 	
 	
+	/**
+	 * Gets the sign instance.
+	 *
+	 * @return the sign instance
+	 * @throws Exception the exception
+	 */
 	public static Sign getSignInstance() throws Exception {
 		Sign sign = new Sign();
 		sign.image = imageMap.get("signImage");

@@ -1,13 +1,16 @@
 package ie.gmit.sw.model.sprites.objects;
 
-//import ie.gmit.sw.ImageManager;
-
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Hole.
+ */
 public class Hole extends ObjectSprite{
+//	Constructors
+	/**
+	 * Instantiates a new hole.
+	 */
 	public Hole() {
-//		try {
-//			image = ImageManager.loadImage("./resources/images/objects/0009.png");
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
+
 	}
-}
+	
+} // end class
